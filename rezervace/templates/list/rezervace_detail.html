@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class="bg-danger text-white text-capitalize text-center p-3">Detail rezervace</h1>
+    <div class="row  mb-2">
+        <div class="col-md-3">
+            <h3>Klient</h3>
+            <div class="bg-light">
+                <div class="ml-2">Jméno: {{ rezervace_context2.klient.jmeno }}</div>
+                <div class="ml-2">Prijmeni: {{ rezervace_context2.klient.prijmeni }}</div>
+                <div class="ml-2">E-mail: {{ rezervace_context2.klient.email }}</div>
+                <div class="ml-2">Telefon: {{ rezervace_context2.klient.telefon }}</div>
+                <div class="bg-danger pd-3 text-center"><span class="text-white ">Pobyt</span></div>
+                <div class="ml-2">Datum příjezdu: <strong>{{ rezervace_context2.zacatek_pobytu }}</strong></div>
+                <div class="ml-2">Datum odjezdu: <strong>{{ rezervace_context2.konec_pobytu }}</strong></div>
+                <div class="ml-2">Počet osob <span class="bg-danger rounded-pill text-white p-1">{{ rezervace_context2.pocet_osob }}</span></div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h3>Ubytování</h3>
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <h4 class="m-2">{{ rezervace_context2.ubytovani.oznaceni }}</h4>
+                    <div class="m-2">{{ rezervace_context2.ubytovani.adresa }}</div>
+                     <hr>
+                    <h5 class="text-danger m-2">Kontakt</h5>
+                    <div class="m-2"><strong>{{ rezervace_context2.ubytovani.kontakt }}</strong></div>
+                    <div class="m-2">Telefon: {{ rezervace_context2.ubytovani.telefon }}</div>
+                    <div class="m-2">E-mail: {{ rezervace_context2.ubytovani.email}}</div>
+                </div>
+                <div class="col-md-6">
+                    <img class="img-fluid" src="{{ rezervace_context2.ubytovani.foto_set.first.fotka.url }}">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

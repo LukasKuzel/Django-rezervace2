@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class="text-primary text-center">Seznam rezervací</h1>
+    <table class="table table-bordered">
+    <thead>
+    <tr class="bg-dark text-white"><th>Klient</th><th>Ubytování</th><th>Začátek</th><th>Konec</th><th>Počet osob</th><th>Akce</th></tr>
+    </thead>
+    <tbody>
+    {% for i in rezervace_context %}
+    <tr>
+        <td>{{ i.klient }}</td><td>{{ i.ubytovani }}</td><td>{{ i.zacatek_pobytu }}</td><td>{{ i.konec_pobytu }}</td><td>{{ i.pocet_osob}}</td><td><button class="btn btn-success"><a href="{% url 'seznam_detail' i.pk %}">Akce</a></button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
